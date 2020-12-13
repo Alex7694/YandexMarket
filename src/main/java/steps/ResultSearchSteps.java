@@ -19,7 +19,7 @@ public class ResultSearchSteps {
 
     @Step("Нажатие на кнопку Найти")
     public void stepSearchButtonClick() {
-        new ResultSearchPage().searchButtonClick();
+        new ResultSearchPage().searchButton.click();
     }
 
     @Step("Проверка наименование товара соответствует запомненному значению")

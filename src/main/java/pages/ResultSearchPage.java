@@ -1,7 +1,6 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,21 +13,14 @@ public class ResultSearchPage extends BasePage {
     @FindBy(xpath = "//h3/a[contains(@href, 'product')]")
     List<WebElement> firstSearchResults;
 
-    @FindBy(xpath = "//a[contains(@class, 'o cia-cs')]")
+    @FindBy(xpath = "//h3/a[contains(@href, 'product')]")
     List<WebElement> secondSearchResults;
 
     @FindBy(xpath = "//input[@placeholder= 'Искать товары']")
     public WebElement searchInput;
 
-    @FindBy(xpath = "//div[contains(text(), 'Найти')]")
+    @FindBy(xpath = "//input[contains(@placeholder, 'Искать товары')]/../../../..//button[contains(@type, 'submit' )]")
     public WebElement searchButton;
-
-    public void searchButtonClick() {
-        try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", searchButton);
-        } catch (NullPointerException exception) {
-        }
-    }
 
     public void checkCountOfResultElements(int expectedCount) {
         int list = firstSearchResults.size();
@@ -40,7 +32,7 @@ public class ResultSearchPage extends BasePage {
     }
 
     public WebElement getFirstElementInSecondSearch() {
-        return secondSearchResults.get(0);
+            return secondSearchResults.get(0);
     }
 
     public void checkElements() {

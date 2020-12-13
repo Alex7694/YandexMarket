@@ -1,6 +1,7 @@
 package steps;
 
 import cucumber.api.java.en.When;
+import org.openqa.selenium.StaleElementReferenceException;
 import pages.ResultSearchPage;
 
 public class ScenarioSteps {
@@ -69,7 +70,11 @@ public class ScenarioSteps {
 
     @When("^запоминаем первое значение списка во второй поисковой выдаче")
     public void getFirstElementInSecondSearch() {
-        secondSearchResult = resultSearchPage.getFirstElementInSecondSearch().getText();
+        try {
+            secondSearchResult = resultSearchPage.getFirstElementInSecondSearch().getText();
+        }catch (StaleElementReferenceException exception) {
+            secondSearchResult = resultSearchPage.getFirstElementInSecondSearch().getText();
+        }
     }
 
     @When("^в поле поиска вводим запомненное значение")

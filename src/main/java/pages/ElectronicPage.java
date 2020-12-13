@@ -16,6 +16,4 @@ public class ElectronicPage extends BasePage {
     public ElectronicPage() {
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
-
-
 }
