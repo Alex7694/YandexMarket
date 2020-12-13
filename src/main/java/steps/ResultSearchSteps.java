@@ -1,7 +1,5 @@
 package steps;
 
-import org.openqa.selenium.JavascriptExecutor;
-import pages.ProductPage;
 import pages.ResultSearchPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
